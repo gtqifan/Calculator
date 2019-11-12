@@ -227,23 +227,18 @@ public class Calculator extends Application{
             lastOnScreenInt = onScreenInt;
             lastOperator = oprations.get(oprations.size() - 1);
         }
-        if (oprations.get(oprations.size() - 1).equals("+")) {
-            result = Integer.parseInt(oprations.get(0)) + onScreenInt;
-            oprations.clear();
-            oprations.add(String.format("%d", result));
-        } else if (oprations.get(oprations.size() - 1).equals("-")) {
-            result = Integer.parseInt(oprations.get(0)) - onScreenInt;
-            oprations.clear();
-            oprations.add(String.format("%d", result));
-        } else if (oprations.get(oprations.size() - 1).equals("*")) {
-            result = Integer.parseInt(oprations.get(0)) * onScreenInt;
-            oprations.clear();
-            oprations.add(String.format("%d", result));
-        } else if (oprations.get(oprations.size() - 1).equals("/")) {
-            result = (Integer.parseInt(oprations.get(0)) / onScreenInt);
-            oprations.clear();
-            oprations.add(String.format("%d", result));
+        switch (oprations.get(oprations.size() - 1)) {
+            case "+":
+                result = Integer.parseInt(oprations.get(0)) + onScreenInt;
+            case "-":
+                result = Integer.parseInt(oprations.get(0)) - onScreenInt;
+            case "*":
+                result = Integer.parseInt(oprations.get(0)) * onScreenInt;
+            case "/":
+                result = (Integer.parseInt(oprations.get(0)) / onScreenInt);
         }
+        oprations.clear();
+        oprations.add(String.format("%d", result));
         onScreenInt = result;
         refreshScreen();
         answer = true;
