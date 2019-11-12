@@ -240,7 +240,7 @@ public class Calculator extends Application{
             oprations.clear();
             oprations.add(String.format("%d", result));
         } else if (oprations.get(oprations.size() - 1).equals("/")) {
-            result = (int) (Integer.parseInt(oprations.get(0)) / onScreenInt);
+            result = (Integer.parseInt(oprations.get(0)) / onScreenInt);
             oprations.clear();
             oprations.add(String.format("%d", result));
         }
@@ -250,7 +250,7 @@ public class Calculator extends Application{
         repeat = true;
     }
 
-    public void negation() {
+    private void negation() {
         if (oprations.size() != 0) {
             oprations.set(0, String.format("%d", Integer.parseInt(oprations.get(0)) * -1));
         }
@@ -266,12 +266,4 @@ public class Calculator extends Application{
         answer = false;
         repeat = false;
     }
-
-//
-//    private void cancel() {
-//        firstNum.clear();
-//        secondNum.clear();
-//        result.clear();
-//    }
-
 }
